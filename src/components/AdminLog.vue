@@ -8,11 +8,11 @@
             </div>
             <div class="card-body">
               <div class="text-center mb-4">
-                <img src="../components/icons/Banner.png" alt="Logo" style="max-width: 290px;">
+                <img src="../components/icons/AdminSaur.png" alt="Logo" style="max-width: 200px;">
               </div>
               <form @submit.prevent="login">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Nombre de usuario:</label>
+                  <label for="username" class="form-label">Nombre del admin:</label>
                   <input type="text" class="form-control" id="username" v-model="username" required>
                 </div>
                 <div class="mb-3">
@@ -20,7 +20,7 @@
                   <input type="password" class="form-control" id="password" v-model="password" required>
                 </div>
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-dark btn-lg">Iniciar sesión</button>
+                  <button type="submit" class="btn btn-dark btn-lg text-center">Ingresar a administración</button>
                 </div>
               </form>
             </div>
@@ -74,6 +74,9 @@
   .btn-dark:hover {
     background-color: #1d2124;
     border-color: #1d2124;
+  }
+  h4{
+    align-self: center;
   }
   </style>
   
