@@ -52,12 +52,14 @@ import Login from './components/Login.vue';
 import Register from './components/Register.vue';
 import Home from './components/Home.vue';
 import AdminLog from './components/AdminLog.vue';
+import Search from './components/Search.vue';
 import { ref } from 'vue';
 
 const showLoginForm = ref(false);
 const showRegisterForm = ref(false);
 const showHomeForm = ref(true);
 const showAdminLogForm = ref(false);
+const showSearchRe = ref(false);
  // Cambiado a true para que se muestre Home por defecto
 
 const showLogin = () => {
@@ -65,6 +67,7 @@ const showLogin = () => {
   showRegisterForm.value = false;
   showHomeForm.value = false;
   showAdminLogForm.value = false;
+  showSearchRe.value = false;
 };
 
 const showRegister = () => {
@@ -72,6 +75,7 @@ const showRegister = () => {
   showRegisterForm.value = true;
   showHomeForm.value = false;
   showAdminLogForm.value = false;
+  showSearchRe.value = false;
 };
 
 const showHome = () => {
@@ -79,6 +83,7 @@ const showHome = () => {
   showRegisterForm.value = false;
   showHomeForm.value = true;
   showAdminLogForm.value = false;
+  showSearchRe.value = false;
 };
 
 const showAdminLog = () => {
@@ -86,6 +91,14 @@ const showAdminLog = () => {
   showRegisterForm.value = false;
   showHomeForm.value = false;
   showAdminLogForm.value = true;
+  showSearchRe.value = false;
+};
+const showSearch = () => {
+  showLoginForm.value = false;
+  showRegisterForm.value = false;
+  showHomeForm.value = false;
+  showAdminLogForm.value = false;
+  showSearchRe.value = true;
 };
 </script>
 
