@@ -8,7 +8,7 @@
         </a>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">All Videogames</a>
+            <a class="nav-link" href="#" @click="showAllvideo">All Videogames</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" @click="showRegister">Register</a>
@@ -31,7 +31,7 @@
             <option value="2">Playstation</option>
             <option value="3">Polystation</option>
           </select>
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success" type="submit" @click="showSearch">Search</button>
         </form>
         <a class="navbar-brand" href="#" @click="showAdminLog">
           <img src="./components/icons/LogoU.png" height="40px" alt="Logo oficial de FiesTop" title="Perfil de usuario">
@@ -43,6 +43,8 @@
       <Login v-if="showLoginForm" />
       <Register v-if="showRegisterForm" />
       <AdminLog v-if="showAdminLogForm"/>
+      <AllVideo v-if="AllVideoCat"/>
+      <Search v-if="showSearchRe"/>
     </main>
   </div>
 </template>
@@ -53,6 +55,7 @@ import Register from './components/Register.vue';
 import Home from './components/Home.vue';
 import AdminLog from './components/AdminLog.vue';
 import Search from './components/Search.vue';
+import AllVideo from './components/AllVideo.vue';
 import { ref } from 'vue';
 
 const showLoginForm = ref(false);
@@ -60,6 +63,7 @@ const showRegisterForm = ref(false);
 const showHomeForm = ref(true);
 const showAdminLogForm = ref(false);
 const showSearchRe = ref(false);
+const AllVideoCat = ref(false);
  // Cambiado a true para que se muestre Home por defecto
 
 const showLogin = () => {
@@ -68,6 +72,7 @@ const showLogin = () => {
   showHomeForm.value = false;
   showAdminLogForm.value = false;
   showSearchRe.value = false;
+  AllVideoCat.value = false;
 };
 
 const showRegister = () => {
@@ -76,6 +81,7 @@ const showRegister = () => {
   showHomeForm.value = false;
   showAdminLogForm.value = false;
   showSearchRe.value = false;
+  AllVideoCat.value = false;
 };
 
 const showHome = () => {
@@ -84,6 +90,7 @@ const showHome = () => {
   showHomeForm.value = true;
   showAdminLogForm.value = false;
   showSearchRe.value = false;
+  AllVideoCat.value = false;
 };
 
 const showAdminLog = () => {
@@ -92,6 +99,7 @@ const showAdminLog = () => {
   showHomeForm.value = false;
   showAdminLogForm.value = true;
   showSearchRe.value = false;
+  AllVideoCat.value = false;
 };
 const showSearch = () => {
   showLoginForm.value = false;
@@ -99,6 +107,15 @@ const showSearch = () => {
   showHomeForm.value = false;
   showAdminLogForm.value = false;
   showSearchRe.value = true;
+  AllVideoCat.value = false;
+};
+const showAllvideo = () => {
+  showLoginForm.value = false;
+  showRegisterForm.value = false;
+  showHomeForm.value = false;
+  showAdminLogForm.value = false;
+  showSearchRe.value = false;
+  AllVideoCat.value = true;
 };
 </script>
 
@@ -120,4 +137,5 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Importa Bootstrap JS (requiere jQuery y Popper.js)
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import AllVideo from './components/AllVideo.vue';
 </script>
