@@ -16,7 +16,6 @@
             </div>
         </nav>
         <main class="section">
-            <Home v-if="showHomeForm" />
             <VideogamesList v-if="showVideogamesList" />
             <AddGameForm v-if="showAddGameForm" />
         </main>
