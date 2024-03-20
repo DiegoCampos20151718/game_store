@@ -40,8 +40,6 @@
   const showRegister = () => {
   showRegisterForm.value = true;
 };
-  
-
   const username = ref('');
   const password = ref('');
   

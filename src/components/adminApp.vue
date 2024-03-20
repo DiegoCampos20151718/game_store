@@ -7,35 +7,26 @@
                         <a class="nav-link" href="#">Control Panel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" @click="showVideogames">Videogames</a>
+                        <RouterLink to="">Videogames</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" @click="showAddGame">Add Game</a>
+                        <RouterLink to="/admin/add-game">Add game</RouterLink>
                     </li>
                 </ul>
             </div>
         </nav>
         <main class="section">
-            <VideogamesList v-if="showVideogamesList" />
-            <AddGameForm v-if="showAddGameForm" />
+            <RouterView />
         </main>
     </div>
 </template>
 <script>
-import AddGameForm from '@/components/AddGameForm.vue';
-import { ref } from 'vue';
-
-const showAddGameForm = ref(false);
-
-const showAddGame = () => {
-    showAddGameForm.value = true;
-}
-
 // Importa Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Importa Bootstrap JS (requiere jQuery y Popper.js)
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 <style>
 .section {

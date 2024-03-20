@@ -2,19 +2,19 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="./components/icons/Banner.png" alt="Logo" @click="showHome" class="nav-link"
-            style="max-width: 170px;">
-        </a>
+        <RouterLink to="/" class="navbar/brand">
+          <img src="./components/icons/Banner.png" alt="Logo" class="nav-link" style="max-width: 170px;"
+            @click="showRouter">
+        </RouterLink>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="showAllvideo">All Videogames</a>
+            <RouterLink to="/catalog" class="nav-link" @click="showRouter">All videogames</RouterLink>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="showRegister">Register</a>
+            <RouterLink to="/register" class="nav-link" @click="showRouter">Register</RouterLink>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="showLogin">Login</a>
+            <RouterLink to="/login" class="nav-link" @click="showRouter">Login</RouterLink>
           </li>
         </ul>
         <form class="d-flex">
@@ -31,92 +31,22 @@
             <option value="2">Playstation</option>
             <option value="3">Polystation</option>
           </select>
-          <button class="btn btn-outline-success" type="submit" @click="showSearch">Search</button>
+          <RouterLink to="/search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </RouterLink>
         </form>
-        <a class="navbar-brand" href="#" @click="showAdminLog">
+        <a class="navbar-brand" href="#">
           <img src="./components/icons/LogoU.png" height="40px" alt="Logo oficial de FiesTop" title="Perfil de usuario">
         </a>
       </div>
     </nav>
     <main class="section">
-      <Home v-if="showHomeForm" />
-      <Login v-if="showLoginForm" />
-      <Register v-if="showRegisterForm" />
-      <AdminLog v-if="showAdminLogForm"/>
-      <AllVideo v-if="AllVideoCat"/>
-      <Search v-if="showSearchRe"/>
+      <RouterView />
     </main>
   </div>
 </template>
 
 <script setup>
-import Login from './components/Login.vue';
-import Register from './components/Register.vue';
-import Home from './components/Home.vue';
-import AdminLog from './components/AdminLog.vue';
-import Search from './components/Search.vue';
-import AllVideo from './components/AllVideo.vue';
-import { ref } from 'vue';
-
-const showLoginForm = ref(false);
-const showRegisterForm = ref(false);
-const showHomeForm = ref(true);
-const showAdminLogForm = ref(false);
-const showSearchRe = ref(false);
-const AllVideoCat = ref(false);
- // Cambiado a true para que se muestre Home por defecto
-
-const showLogin = () => {
-  showLoginForm.value = true;
-  showRegisterForm.value = false;
-  showHomeForm.value = false;
-  showAdminLogForm.value = false;
-  showSearchRe.value = false;
-  AllVideoCat.value = false;
-};
-
-const showRegister = () => {
-  showLoginForm.value = false;
-  showRegisterForm.value = true;
-  showHomeForm.value = false;
-  showAdminLogForm.value = false;
-  showSearchRe.value = false;
-  AllVideoCat.value = false;
-};
-
-const showHome = () => {
-  showLoginForm.value = false;
-  showRegisterForm.value = false;
-  showHomeForm.value = true;
-  showAdminLogForm.value = false;
-  showSearchRe.value = false;
-  AllVideoCat.value = false;
-};
-
-const showAdminLog = () => {
-  showLoginForm.value = false;
-  showRegisterForm.value = false;
-  showHomeForm.value = false;
-  showAdminLogForm.value = true;
-  showSearchRe.value = false;
-  AllVideoCat.value = false;
-};
-const showSearch = () => {
-  showLoginForm.value = false;
-  showRegisterForm.value = false;
-  showHomeForm.value = false;
-  showAdminLogForm.value = false;
-  showSearchRe.value = true;
-  AllVideoCat.value = false;
-};
-const showAllvideo = () => {
-  showLoginForm.value = false;
-  showRegisterForm.value = false;
-  showHomeForm.value = false;
-  showAdminLogForm.value = false;
-  showSearchRe.value = false;
-  AllVideoCat.value = true;
-};
 </script>
 
 <style>
@@ -137,5 +67,4 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Importa Bootstrap JS (requiere jQuery y Popper.js)
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import AllVideo from './components/AllVideo.vue';
 </script>
