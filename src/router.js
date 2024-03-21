@@ -9,6 +9,7 @@ import AddGameForm from './components/AddGameForm.vue';
 import EditGameForm from './components/EditGameForm.vue';
 import AllVideo from './components/AllVideo.vue';
 import AdminLog from './components/AdminLog.vue';
+import Game from './components/Game.vue';
 
 const routes = [
     { path: '/', component: Home },
@@ -16,6 +17,7 @@ const routes = [
     { path: '/register', component: Register },
     { path: '/search', component: Search },
     { path: '/catalog', component: AllVideo },
+    { path: '/game', component: Game },
     
     { path: '/admin',  component: adminApp },
     { path: '/admin/add-game', component: AddGameForm },

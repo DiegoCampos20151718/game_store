@@ -39,7 +39,9 @@
         <div class="row">
           <div class="col-lg-4 mb-4" v-for="(game, index) in games" :key="index">
             <div class="card h-100 shadow">
-              <img :src="game.image" class="card-img-top" alt="Game Image">
+              <RouterLink :to="{ path: '/game' }">
+                <img :src="game.image" class="card-img-top" alt="Game Image" @click="showRouter">
+              </RouterLink>
               <div class="card-body">
                 <h5 class="card-title">{{ game.title }}</h5>
                 <p class="card-text">{{ game.description }}</p>
