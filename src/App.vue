@@ -35,9 +35,10 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
           </RouterLink>
         </form>
-        <a class="navbar-brand" href="#">
-          <img src="./components/icons/LogoU.png" height="40px" alt="Logo oficial de FiesTop" title="Perfil de usuario">
-        </a>
+        <RouterLink :to="{ path: '/admin' }">
+          <img src="./components/icons/LogoU.png" height="40px" alt="Logo oficial de FiesTop" title="Perfil de usuario"
+            @click="showRouter">
+        </RouterLink>
       </div>
     </nav>
     <main class="section">
