@@ -1,27 +1,35 @@
 <template>
-  <div>
-    <br /><br /><br /><br />
-    <div v-if="loading" class="placeholder">
-      Loading...
-    </div>
-    <div v-else class="container">
-      <div class="imageContainer">
-        <img :src="game.image" :alt="game.name" class="image" />
+  <default-layout>
+    <div>
+      <br /><br /><br /><br />
+      <div v-if="loading" class="placeholder">
+        Loading...
       </div>
-      <div class="detailsContainer">
-        <h2 class="title">{{ game.name }}</h2>
-        <p class="price">${{ game.price }} MXN</p>
-        <p class="genrePlatform">Genre: {{ game.genre }}</p>
-        <p class="genrePlatform">Platform: {{ game.platform }}</p>
-        <p class="description">{{ game.description }}</p>
-        <button @click="buy" class="buyButton">Buy</button>
+      <div v-else class="container">
+        <div class="imageContainer">
+          <img :src="game.image" :alt="game.name" class="image" />
+        </div>
+        <div class="detailsContainer">
+          <h2 class="title">{{ game.name }}</h2>
+          <p class="price">${{ game.price }} MXN</p>
+          <p class="genrePlatform">Genre: {{ game.genre }}</p>
+          <p class="genrePlatform">Platform: {{ game.platform }}</p>
+          <p class="description">{{ game.description }}</p>
+          <button @click="buy" class="buyButton">Buy</button>
+        </div>
       </div>
     </div>
-  </div>
+  </default-layout>
 </template>
 
 <script>
+import DefaultLayout from './layouts/DefaultLayout.vue';
+
 export default {
+  name: 'Game',
+  components: {
+    DefaultLayout,
+  },
   data() {
     return {
       loading: false,
@@ -48,7 +56,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust the height of the placeholder to cover the entire viewport */
+  height: 100vh;
+  /* Adjust the height of the placeholder to cover the entire viewport */
   background-color: #333;
   color: #fff;
   font-size: 20px;

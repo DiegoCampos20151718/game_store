@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <default-layout>
     <!-- Sección de banners -->
     <section class="banner-section">
       <div class="container">
@@ -21,18 +21,19 @@
             </div>
             <!-- Agrega más elementos carousel-item según sea necesario -->
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
       </div>
     </section>
-
     <!-- Sección de juegos -->
     <main class="section-fluid" style="width: 1200px;">
       <div class="container mt-5">
@@ -52,12 +53,22 @@
         </div>
       </div>
     </main>
-  </div>
+  </default-layout>
 </template>
+
+<script>
+import DefaultLayout from './layouts/DefaultLayout.vue';
+
+export default {
+  name: 'Home',
+  components: {
+    DefaultLayout,
+  }
+}
+</script>
 
 <script setup>
 import { ref } from 'vue';
-
 // Datos de ejemplo de juegos
 const games = ref([
   {
@@ -100,7 +111,6 @@ const games = ref([
   // Agrega más juegos según sea necesario
 ]);
 </script>
-
 <style scoped>
 /* Estilos personalizados */
 .banner-section {
@@ -118,7 +128,8 @@ const games = ref([
   width: 1150px;
   height: 200px;
 }
-body{
+
+body {
   background: black;
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <default-layout>
     <div class="container" style="width: 1200px;">
       <div class="row justify-content-center mt-5">
         <div class="col-lg-6">
@@ -25,55 +26,61 @@
               </form>
             </div>
             <div class="card-footer bg-dark text-white text-center">
-              ¿No tienes una cuenta? <a href="#" @click="showRegister" class="text-white">Regístrate aquí</a>
+              ¿No tienes una cuenta? <RouterLink to="/register" class="text-white">Regístrate aquí</RouterLink>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  import Register from './Register.vue';
-  const showRegisterForm = ref(false);
-  const showRegister = () => {
-  showRegisterForm.value = true;
-};
-  
+  </default-layout>
+</template>
 
-  const username = ref('');
-  const password = ref('');
-  
-  const login = () => {
-    // Aquí puedes agregar la lógica para enviar los datos de inicio de sesión al servidor
-    console.log('Nombre de usuario:', username.value);
-    console.log('Contraseña:', password.value);
-  };
-  </script>
-  
-  <style scoped>
-  .card {
-    border: none;
-    border-radius: 1rem;
+<script>
+import DefaultLayout from './layouts/DefaultLayout.vue';
+import { ref } from 'vue';
+
+export default {
+  name: 'Login',
+  components: {
+    DefaultLayout,
   }
-  
-  .card-header {
-    border-radius: 1rem 1rem 0 0;
-  }
-  
-  .card-footer {
-    border-radius: 0 0 1rem 1rem;
-  }
-  
-  .btn-dark {
-    background-color: #343a40;
-    border-color: #343a40;
-  }
-  
-  .btn-dark:hover {
-    background-color: #1d2124;
-    border-color: #1d2124;
-  }
-  </style>
-  
+}
+
+const username = ref('');
+const password = ref('');
+
+const login = () => {
+  // Aquí puedes agregar la lógica para enviar los datos de inicio de sesión al servidor
+  console.log('Nombre de usuario:', username.value);
+  console.log('Contraseña:', password.value);
+};
+</script>
+
+<script setup>
+
+</script>
+
+<style scoped>
+.card {
+  border: none;
+  border-radius: 1rem;
+}
+
+.card-header {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-footer {
+  border-radius: 0 0 1rem 1rem;
+}
+
+.btn-dark {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-dark:hover {
+  background-color: #1d2124;
+  border-color: #1d2124;
+}
+</style>

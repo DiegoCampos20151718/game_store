@@ -1,5 +1,6 @@
 <template>
-    <form class="container-fluid"  style="width: 1200px;">
+  <default-layout>
+    <form class="container-fluid" style="width: 1200px;">
       <div class="row justify-content-center mt-10">
         <div class="col-lg-25">
           <div class="card shadow">
@@ -47,51 +48,62 @@
         </div>
       </div>
     </form>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  
-  const username = ref('');
-  const email = ref('');
-  const password = ref('');
-  const birthdate = ref('');
-  const address = ref('');
-  const phone = ref('');
-  
-  const register = () => {
-    // Aquí puedes agregar la lógica para enviar los datos de registro al servidor
-    console.log('Nombre de usuario:', username.value);
-    console.log('Correo electrónico:', email.value);
-    console.log('Contraseña:', password.value);
-    console.log('Fecha de nacimiento:', birthdate.value);
-    console.log('Dirección:', address.value);
-    console.log('Número de teléfono:', phone.value);
-  };
-  </script>
-  
-  <style scoped>
-  .card {
-    border: none;
-    border-radius: 1rem;
+  </default-layout>
+</template>
+
+<script>
+import DefaultLayout from './layouts/DefaultLayout.vue';
+
+export default {
+  name: 'Register',
+  components: {
+    DefaultLayout,
   }
-  
-  .card-header {
-    border-radius: 1rem 1rem 0 0;
-  }
-  
-  .card-footer {
-    border-radius: 0 0 1rem 1rem;
-  }
-  
-  .btn-dark {
-    background-color: #343a40;
-    border-color: #343a40;
-  }
-  
-  .btn-dark:hover {
-    background-color: #1d2124;
-    border-color: #1d2124;
-  }
-  </style>
-  
+}
+</script>
+
+<script setup>
+import { ref } from 'vue';
+
+const username = ref('');
+const email = ref('');
+const password = ref('');
+const birthdate = ref('');
+const address = ref('');
+const phone = ref('');
+
+const register = () => {
+  // Aquí puedes agregar la lógica para enviar los datos de registro al servidor
+  console.log('Nombre de usuario:', username.value);
+  console.log('Correo electrónico:', email.value);
+  console.log('Contraseña:', password.value);
+  console.log('Fecha de nacimiento:', birthdate.value);
+  console.log('Dirección:', address.value);
+  console.log('Número de teléfono:', phone.value);
+};
+</script>
+
+<style scoped>
+.card {
+  border: none;
+  border-radius: 1rem;
+}
+
+.card-header {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-footer {
+  border-radius: 0 0 1rem 1rem;
+}
+
+.btn-dark {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-dark:hover {
+  background-color: #1d2124;
+  border-color: #1d2124;
+}
+</style>

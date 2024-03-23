@@ -1,37 +1,48 @@
 <template>
-  <div>
-    <!-- Sección de banners -->
-    <section class="banner-section">
-      <div class="container">
-        <H1>All VideoGames:</H1>
-      </div>
-    </section>
+  <default-layout>
+    <div>
+      <!-- Sección de banners -->
+      <section class="banner-section">
+        <div class="container">
+          <H1 class="text-white">All Videogames</H1>
+        </div>
+      </section>
 
-    <!-- Sección de juegos -->
-    <main class="section-fluid" style="width: 1200px;">
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-lg-4 mb-4" v-for="(game, index) in games" :key="index">
-            <div class="card h-100 shadow">
-              <RouterLink :to="{ path: '/game' }">
-                <img :src="game.image" class="card-img-top" alt="Game Image" @click="showRouter">
-              </RouterLink>
-              <div class="card-body" @click="">
-                <h5 class="card-title">{{ game.title }}</h5>
-                <p class="card-text">{{ game.description }}</p>
-                <p class="card-text">Console: {{ game.console }}</p>
+      <!-- Sección de juegos -->
+      <main class="section-fluid" style="width: 1200px;">
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-lg-4 mb-4" v-for="(game, index) in games" :key="index">
+              <div class="card h-100 shadow">
+                <RouterLink :to="{ path: '/game' }">
+                  <img :src="game.image" class="card-img-top" alt="Game Image" @click="showRouter">
+                </RouterLink>
+                <div class="card-body" @click="">
+                  <h5 class="card-title">{{ game.title }}</h5>
+                  <p class="card-text">{{ game.description }}</p>
+                  <p class="card-text">Console: {{ game.console }}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-  </div>
+      </main>
+    </div>
+  </default-layout>
 </template>
 
+<script>
+import DefaultLayout from './layouts/DefaultLayout.vue';
+
+export default {
+  name: 'AllVideo',
+  components: {
+    DefaultLayout,
+  }
+}
+</script>
 <script setup>
 import { ref } from 'vue';
-
 // Datos de ejemplo de juegos
 const games = ref([
   {

@@ -1,27 +1,10 @@
 <template>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Control Panel</a>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="">Videogames</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/admin/add-game">Add game</router-link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <main class="section">
-            <router-view />
-        </main>
-        <main>
-            <h2>VideoGames List</h2>
+    <admin-layout>
+        <div>
+            <h2 class="text-white">Videogames List</h2>
             <div class="table-responsive">
-                <table class="table table-hover table-dark table-bordered" style="position: absolute; top: 15%; right: 25%; width: 50%;">
+                <table class="table table-hover table-dark table-bordered"
+                    style="position: absolute; top: 15%; right: 25%; width: 50%;">
                     <thead class="thead-dark">
                         <tr>
                             <th>Title</th>
@@ -39,27 +22,26 @@
                             <td><img :src="game.image" :alt="game.title" class="image"
                                     style="max-width: 100px; max-height: 100px;"></td>
                             <td>
-                                <button class="btn btn-warning" @click="editGame(index)">Edit</button>
+                                <RouterLink to="/admin/edit-game"><button class="btn btn-warning">Edit</button></RouterLink>
                                 <button class="btn btn-danger" @click="deleteGame(index)">Delete</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </main>
-    </div>
+        </div>
+    </admin-layout>
 </template>
 <script>
-// Importa Bootstrap CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// Importa Bootstrap JS (requiere jQuery y Popper.js)
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { RouterLink, RouterView } from 'vue-router';
-import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
+import AdminLayout from './layouts/AdminLayout.vue';
 
 // Datos de ejemplo de juegos
 export default {
+    name: 'AdminHome',
+    components: {
+        AdminLayout,
+    },
     data() {
         return {
             games: [
@@ -106,12 +88,4 @@ export default {
     }
 };
 </script>
-<style>
-.section {
-    padding-top: 6rem;
-}
-
-body {
-    background: #272727;
-}
-</style>
+<style></style>
